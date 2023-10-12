@@ -1,0 +1,110 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{array,amsmath,amssymb,mathtools,microtype,tikz}
+\usetikzlibrary{shapes.geometric,patterns,positioning}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{backgrounds,calc,decorations.pathreplacing}
+\usepgfplotslibrary{groupplots}
+
+% IEEE
+%\renewcommand{\sfdefault}{phv}
+%\renewcommand{\rmdefault}{ppl}
+%\renewcommand{\ttdefault}{pcr}
+%\usepackage{mathptmx}
+
+% ACM
+\usepackage[tt=false, type1=true]{libertine}
+\usepackage[varqu]{zi4}
+\usepackage[libertine]{newtxmath}
+
+% Code from Christian Feuersänger
+% http://tex.stackexchange.com/questions/54794/using-a-pgfplots-style-legend-in-a-plain-old-tikzpicture#54834
+
+% argument #1: any options
+\newenvironment{customlegend}[1][]{%
+    \begingroup
+    % inits/clears the lists (which might be populated from previous
+    % axes):
+    \csname pgfplots@init@cleared@structures\endcsname
+    \pgfplotsset{#1}%
+}{%
+    % draws the legend:
+    \csname pgfplots@createlegend\endcsname
+    \endgroup
+}%
+
+% makes \addlegendimage available (typically only available within an
+% axis environment):
+\def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
+%%--------------------------------
+
+% definition to insert numbers
+\pgfkeys{/pgfplots/number in legend/.style={%
+        /pgfplots/legend image code/.code={%
+            \node at (0.295,-0.0225){#1};
+        },%
+    },
+}
+
+\pgfplotsset{
+	 vm type/.style={
+		legend image code/.code={%
+			\node[draw, fill=white,inner sep=1pt] at (0,0) {#1};
+		}
+	},
+}
+
+\usetikzlibrary{arrows.meta,calc,shapes.arrows,decorations.pathreplacing,shadows,backgrounds}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{colormaps}
+\tikzset{
+	bar-color/.style={
+		color of colormap={#1},
+		draw=.!80!black,
+		fill=.!80!white,
+	},
+	normal-color/.style={
+		color of colormap={#1},
+		draw=.,
+	},
+	mark-color/.style={
+		color of colormap={#1},
+		draw=.!80!black,
+		fill=.!80!white,
+	},
+	mark-color-opacity/.style={
+		color of colormap={#1},
+		draw=.!80!black,
+		fill=.!80!white,
+		fill opacity=0.2
+	},
+	mydashed/.style={dash pattern=on 6pt off 4pt}
+}
+
+
+\begin{document}
+\begin{tikzpicture}
+\begin{customlegend}[colormap/viridis,
+legend entries={ % <= in the following there are the entries
+Same-PRB,
+Same-Sched.,
+Distinct,
+Self
+},
+legend columns=-1,
+legend style={at={(0,0)},font=\normalfont, text height=1.5ex,/tikz/every even column/.append style={column sep=0.3cm},draw,inner ysep=0pt}] % <= to define position and font legend
+% the following are the "images" and numbers in the legend
+    \addlegendimage{mark-color=150,ultra thick,mark=x, only marks,thick,mark size=4pt}
+    \addlegendimage{mark-color-opacity=450, mark=square*,only marks, thick,mark size=4pt}
+    \addlegendimage{mark-color=700, mark=asterisk, only marks, thick,mark size=4pt}
+    \addlegendimage{mark-color=950,ultra thick, mark=diamond*, only marks, thick,mark size=4pt}
+\end{customlegend}
+\end{tikzpicture}
+\end{document}

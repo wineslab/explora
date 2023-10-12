@@ -1,0 +1,191 @@
+% This file was created by tikzplotlib v0.9.8.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{1,0.647058823529412,0}
+
+\begin{groupplot}[group style={group size=3 by 1}]
+\nextgroupplot[
+tick align=outside,
+tick pos=left,
+x grid style={white!69.0196078431373!black},
+xlabel={SL0},
+xmin=-0.04, xmax=0.02,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ylabel={DL buffer size},
+ymin=-117.52, ymax=113.57,
+ytick style={color=black}
+]
+\addplot [draw=blue, fill=blue, mark=x, only marks, scatter]
+table{%
+x  y
+0 113.57
+0 17.84
+-0.01 -102.77
+0.01 -40.34
+0.02 -76.2
+0.01 67.81
+-0.01 -4.56
+0.01 4.56
+};
+\addplot [
+  draw=green!50.1960784313725!black,
+  draw=none,
+  fill=green!50.1960784313725!black,
+  mark=square*
+]
+table{%
+x  y
+-0.5 -0.5
+0.5 -0.5
+0.5 0.5
+-0.5 0.5
+-0.5 -0.5
+};
+\addplot [draw=color0, fill=color0, mark=asterisk, only marks, scatter]
+table{%
+x  y
+0 -17.91
+0.01 47.63
+-0.04 21.64
+-0.01 -117.52
+-0.01 13.32
+0.01 -41.58
+-0.03 -13.69
+0 -29.76
+0 -34.66
+};
+\addplot [draw=red, fill=red, mark=diamond*, only marks, scatter]
+table{%
+x  y
+0 0
+0 0
+0 0
+};
+
+\nextgroupplot[
+tick align=outside,
+tick pos=left,
+x grid style={white!69.0196078431373!black},
+xlabel={SL1
+ tx\_brate},
+xmin=-0.04, xmax=0.01,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ymin=-27.03, ymax=27.03,
+ytick style={color=black}
+]
+\addplot [draw=blue, fill=blue, mark=x, only marks, scatter]
+table{%
+x  y
+0 -4.11
+-0.01 1.54
+-0.02 -26.33
+0 12.47
+0.01 -8.78
+-0.04 9.1
+-0.01 -23.88
+0.01 23.88
+};
+\addplot [
+  draw=green!50.1960784313725!black,
+  draw=none,
+  fill=green!50.1960784313725!black,
+  mark=square*
+]
+table{%
+x  y
+-0.5 -0.5
+0.5 -0.5
+0.5 0.5
+-0.5 0.5
+-0.5 -0.5
+};
+\addplot [draw=color0, fill=color0, mark=asterisk, only marks, scatter]
+table{%
+x  y
+0.01 5.64
+0 20.69
+0.01 -8.78
+-0.01 18.23
+0.01 27.03
+0.01 -27.03
+0 9.45
+-0.03 0
+0.01 5.64
+};
+\addplot [draw=red, fill=red, mark=diamond*, only marks, scatter]
+table{%
+x  y
+0 0
+0 0
+0 0
+};
+
+\nextgroupplot[
+legend cell align={left},
+legend columns=4,
+legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.3,1.15)}, draw=white!80!black},
+tick align=outside,
+tick pos=left,
+x grid style={white!69.0196078431373!black},
+xlabel={SL2},
+xmin=-0.02, xmax=0.02,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ymin=-23.7, ymax=30.72,
+ytick style={color=black}
+]
+\addplot [draw=blue, fill=blue, mark=x, only marks, scatter]
+table{%
+x  y
+-0.01 7.18
+0.02 7.18
+0 -17.56
+-0.01 4.16
+0 0
+-0.01 27.44
+-0.01 14.01
+0.01 -14.01
+};
+\addlegendentry{same-prbs}
+\addplot [
+  draw=green!50.1960784313725!black,
+  draw=none,
+  fill=green!50.1960784313725!black,
+  mark=square*
+]
+table{%
+x  y
+-0.5 -0.5
+0.5 -0.5
+0.5 0.5
+-0.5 0.5
+-0.5 -0.5
+};
+\addlegendentry{same-pol}
+\addplot [draw=color0, fill=color0, mark=asterisk, only marks, scatter]
+table{%
+x  y
+-0.01 -23.7
+0 17.56
+0.01 30.72
+-0.02 -9.88
+-0.01 -4.16
+-0.01 4.16
+-0.01 -8.78
+0.02 0
+0 0
+};
+\addlegendentry{distinct}
+\addplot [draw=red, fill=red, mark=diamond*, only marks, scatter]
+table{%
+x  y
+0 0
+0 0
+0 0
+};
+\addlegendentry{self}
+\end{groupplot}
+
+\end{tikzpicture}

@@ -1,0 +1,135 @@
+\documentclass[tikz,multi,border=1pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools,microtype}
+\usepackage[edges]{forest}
+
+\usetikzlibrary{arrows.meta,
+	backgrounds,
+	calc,
+	decorations.pathreplacing,
+	positioning,
+	shapes.arrows, shapes.geometric,
+	shadows,shadows.blur}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{colormaps}
+
+% IEEE
+%\renewcommand{\sfdefault}{phv}
+%\renewcommand{\rmdefault}{ppl}
+%\renewcommand{\ttdefault}{pcr}
+%\usepackage{mathptmx}
+
+% ACM
+\usepackage[tt=false, type1=true]{libertine}
+\usepackage[varqu]{zi4}
+\usepackage[libertine]{newtxmath}
+
+\tikzset{%
+	fill-color/.style={
+		color of colormap={#1},
+		draw=.!80!black,
+		fill=.!80!white,
+		text=black
+	},
+	fill-color-opacity/.style={
+		fill-color={#1},
+		fill opacity = 0.2
+	},
+	/pgfplots/colormap/viridis
+}
+
+% Code from Christian Feuersänger
+% http://tex.stackexchange.com/questions/54794/using-a-pgfplots-style-legend-in-a-plain-old-tikzpicture#54834
+
+% argument #1: any options
+\newenvironment{customlegend}[1][]{%
+	\begingroup
+	% inits/clears the lists (which might be populated from previous
+	% axes):
+	\csname pgfplots@init@cleared@structures\endcsname
+	\pgfplotsset{#1}%
+}{%
+	% draws the legend:
+	\csname pgfplots@createlegend\endcsname
+	\endgroup
+}%
+
+% makes \addlegendimage available (typically only available within an
+% axis environment):
+\def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
+%%--------------------------------
+
+% definition to insert numbers
+\pgfkeys{/pgfplots/number in legend/.style={%
+		/pgfplots/legend image code/.code={%
+			\node at (0.295,-0.0225){#1};
+		},%
+	},
+}
+
+\pgfplotsset{
+	vm type/.style={
+		legend image code/.code={%
+			\node[draw, fill=white,inner sep=1pt] at (0,0) {#1};
+		}
+	},
+}
+
+
+\begin{document}
+\begin{forest}
+	for tree={%
+		rounded corners,
+		minimum width=9em,
+		minimum height=4ex,
+		edge={-Latex},
+		font=\sffamily,
+		text centered,
+		align=center,
+		draw,
+		fit=tight,
+%		forked edges,
+%		for children={l sep-=3em,
+%			l-=1ex}
+},
+[tx\_packets $\leq -51.855$\\ {gini = 0.567} \\ {samples = 21}\\ {class = Distinct}, fill-color=700, tikz = {\node[font=\large] at (2.5,-1.55) {False};\node[font=\large] at (-2.5,-1.55) {True};}
+  [tx\_bitrate $\leq -1.035$\\ {gini = 0.375} \\ {samples = 4} \\ {class = Same-PRB}, fill-color=150, fill opacity=0.6
+    [{gini = 0.0} \\ {samples = 1} \\ {class = Same-Sched.}, fill-color-opacity=450]
+    [{gini = 0.375} \\ {samples = 3} \\ {class = Same-PRB}, fill-color=150, fill opacity=0.6]
+  ]
+  [tx\_packets $\leq 56.76$\\ {gini = 0.381} \\ {samples = 17} \\ {class = Distinct}, fill-color=700
+  	[tx\_bitrate $\leq -0.005$\\ {gini = 0.305} \\ {samples = 16} \\ {class = Distinct}, fill-color=700
+  	  [{gini = 0.0} \\ {samples = 8} \\ {class = Distinct}, fill-color=700]
+  	  [tx\_bitrate $\leq 0.005$\\ {gini = 0.469} \\ {samples = 8} \\ {class = Distinct}, fill-color=700
+  	    [{gini = 0.0} \\ {samples = 3} \\ {class = Self}, fill-color=950]
+  	    [{gini = 0.0} \\ {samples = 5} \\ {class = Distinct}, fill-color=700]
+  	  ]
+  	]
+  	[{gini = 0.0} \\ {samples = 1} \\ {class = Same-Sched.}, fill-color-opacity=450], tikz = {%
+\begin{customlegend}[
+	legend entries={ % <= in the following there are the entries
+		Same-PRB,
+		Same-Sched.,
+		Distinct,
+		Self
+	},
+	colormap/viridis,
+	legend columns=1,
+	legend cell align=left,
+	legend style={at={(-3.65,-8.75)},font=\large, text height=1.5ex,/tikz/every even column/.append style={column sep=1em},draw,inner sep=1pt}] % <= to define position and font legend
+	% the following are the "images" and numbers in the legend
+	\addlegendimage{fill-color=150,area legend}
+	\addlegendimage{fill-color-opacity=450, area legend}
+	\addlegendimage{fill-color=700, area legend}
+	\addlegendimage{fill-color=950, area legend}
+\end{customlegend}  	
+}
+  ]
+]
+\end{forest}
+\end{document}

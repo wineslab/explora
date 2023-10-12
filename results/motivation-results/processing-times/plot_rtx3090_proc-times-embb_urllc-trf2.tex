@@ -1,0 +1,53 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{darkorange25512714}{RGB}{255,127,14}
+\definecolor{steelblue31119180}{RGB}{31,119,180}
+
+\begin{axis}[
+log basis y={10},
+tick align=outside,
+tick pos=left,
+x grid style={darkgray176},
+xlabel={Configurations},
+xmin=-0.69, xmax=5.69,
+xtick style={color=black},
+xtick={0,1,2,3,4,5},
+xticklabels={C1,C2,C3,C4,C5,C6},
+y grid style={darkgray176},
+ylabel={Processing times (s)},
+ymin=197.09433652085, ymax=78839.0699338796,
+ymode=log,
+ytick style={color=black},
+ytick={10,100,1000,10000,100000,1000000},
+yticklabels={
+  \(\displaystyle {10^{1}}\),
+  \(\displaystyle {10^{2}}\),
+  \(\displaystyle {10^{3}}\),
+  \(\displaystyle {10^{4}}\),
+  \(\displaystyle {10^{5}}\),
+  \(\displaystyle {10^{6}}\)
+}
+]
+\draw[draw=none,fill=steelblue31119180] (axis cs:-0.4,0) rectangle (axis cs:0,58524.9786317348);
+\addlegendimage{ybar,ybar legend,draw=none,fill=steelblue31119180}
+\addlegendentry{embb_trf2}
+
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.6,0) rectangle (axis cs:1,59219.2741601467);
+\draw[draw=none,fill=steelblue31119180] (axis cs:1.6,0) rectangle (axis cs:2,3407.09036183357);
+\draw[draw=none,fill=steelblue31119180] (axis cs:2.6,0) rectangle (axis cs:3,719.325023651123);
+\draw[draw=none,fill=steelblue31119180] (axis cs:3.6,0) rectangle (axis cs:4,712.563487291336);
+\draw[draw=none,fill=steelblue31119180] (axis cs:4.6,0) rectangle (axis cs:5,677.699569702148);
+\draw[draw=none,fill=darkorange25512714] (axis cs:-2.77555756156289e-17,0) rectangle (axis cs:0.4,60043.459069252);
+\addlegendimage{ybar,ybar legend,draw=none,fill=darkorange25512714}
+\addlegendentry{urllc_trf2}
+
+\draw[draw=none,fill=darkorange25512714] (axis cs:1,0) rectangle (axis cs:1.4,59003.3924343586);
+\draw[draw=none,fill=darkorange25512714] (axis cs:2,0) rectangle (axis cs:2.4,7238.57805323601);
+\draw[draw=none,fill=darkorange25512714] (axis cs:3,0) rectangle (axis cs:3.4,737.270066261292);
+\draw[draw=none,fill=darkorange25512714] (axis cs:4,0) rectangle (axis cs:4.4,258.791455745697);
+\draw[draw=none,fill=darkorange25512714] (axis cs:5,0) rectangle (axis cs:5.4,675.399163722992);
+\end{axis}
+
+\end{tikzpicture}

@@ -1,0 +1,126 @@
+\documentclass[tikz,border=1pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+
+%% ACM
+\usepackage[tt=false, type1=true]{libertine}
+\usepackage[varqu]{zi4}
+\usepackage[libertine]{newtxmath}
+
+%% IEEE
+%\renewcommand{\sfdefault}{phv}
+%\renewcommand{\rmdefault}{ppl}
+%\renewcommand{\ttdefault}{pcr}
+%\usepackage{mathptmx}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{colormaps}
+\usetikzlibrary{arrows.meta}
+\tikzset{normal-color/.style={
+		color of colormap={#1},
+		draw=.,
+	},
+	mark-color/.style={
+		color of colormap={#1},
+		draw=.!80!black,
+		fill=.!80!white,
+	},
+	mark-color-opacity/.style={
+		color of colormap={#1},
+		draw=.!80!black,
+		fill=.!80!white,
+		fill opacity=0.2
+	},
+	mydashed/.style={dash pattern=on 6pt off 4pt}
+}
+
+\begin{document}
+% This file was created by tikzplotlib v0.9.8.
+\begin{tikzpicture}
+
+\begin{axis}[width=7cm,
+	height=4cm,
+tick align=outside,
+tick pos=left,
+xlabel={Tx bitrate},
+xmin=-2.01, xmax=2.02,
+ylabel={Tx packets},
+ymin=-118.16, ymax=117.27,
+x label style={at={(axis description cs:0.5,-0.2)},anchor=north},
+xlabel style={font=\large,text depth=0pt},
+ylabel style={font=\large,text depth=0pt},
+%xticklabel style={font=\large},
+%yticklabel style={font=\large},
+%legend cell align={left},
+%legend columns=-1,
+%legend style={
+%	%	font=\large,
+%	at={(1.0,1.02)},
+%	anchor=south east,
+%},
+colormap/viridis,
+/pgf/number format/1000 sep={\,}
+]
+\addplot [mark-color=150, mark=x, only marks,thick, mark size=3pt]
+table{%
+x  y
+-0.04 1.18
+-0.01 -0.27
+-0.01 -2.57
+0.1 -8.89
+0.01 7.2
+-0.04 9.81
+-0.02 8
+0.02 -4.3
+0.02 -8
+-0.02 4.3
+-0.02 0.89
+0.01 2.57
+-0.1 8.89
+-0.01 -7.2
+-0.01 -8.77
+0.04 -1.18
+0.01 0.27
+};
+%\addlegendentry{Same-PRB}
+\addplot [mark-color-opacity=450,mark=square*,only marks, mark size=3pt]
+table{%
+x  y
+-2.01 -112.68
+-0.04 103.71
+0.1 -114.41
+};
+%\addlegendentry{Same-Pol.}
+\addplot[ mark-color=700, mark=asterisk, only marks,thick, mark size=3pt]
+table{%
+x  y
+0.06 -104.6
+0.05 -94.94
+2.02 115.25
+-0.06 -94.82
+-0.23 117.27
+0.25 -118.16
+};
+%\addlegendentry{Distinct}
+\addplot [mark-color=950, mark=diamond*, only marks,thick, mark size=3pt]
+table{%
+x  y
+0 0
+0 0
+0 0
+0 0
+};
+%\addlegendentry{Self}
+
+% additions
+\node (dim) at (axis cs:-1,-40){Diminish};
+\draw[-Stealth] (dim) --++(210:1cm);
+
+\node (aug) at (axis cs:1,40){Augment};
+\draw[-Stealth] (aug) --++(30:1cm);
+\end{axis}
+\end{tikzpicture}
+\end{document}

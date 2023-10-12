@@ -1,0 +1,99 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+
+%% ACM
+\usepackage[tt=false, type1=true]{libertine}
+\usepackage[varqu]{zi4}
+\usepackage[libertine]{newtxmath}
+
+%% IEEE
+%\renewcommand{\sfdefault}{phv}
+%\renewcommand{\rmdefault}{ppl}
+%\renewcommand{\ttdefault}{pcr}
+%\usepackage{mathptmx}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{colormaps}
+\tikzset{
+	bar-color/.style={
+		color of colormap={#1},
+		draw=.!80!black,
+		fill=.!80!white,
+	},
+	normal-color/.style={
+		color of colormap={#1},
+		draw=.,
+	},
+	mydashed/.style={dash pattern=on 6pt off 4pt}
+}
+
+\begin{document}
+% This file was created by tikzplotlib v0.9.8.
+\begin{tikzpicture}[text depth=0pt]
+
+\begin{axis}[width=5cm,
+height=3cm,
+scale only axis,
+log basis y={10},
+ymajorgrids,
+tick align=outside,
+tick pos=left,
+xlabel={Configurations C$_{\text{LL,trf2}-<x>}$},
+xmin=-0.69, xmax=5.69,
+xtick={0,1,2,3,4,5},
+xticklabels={4,3,2,1,1,1},
+ylabel={Processing times (h)},
+ymin=193.340577460669, ymax=118063.403680237,
+ymode=log,
+ytick={1080,10800,93600},
+ymax=93600,
+yticklabels={0.3,3.0,26.0},
+xlabel style={font=\Large},
+ylabel style={font=\Large},
+xticklabel style={font=\large},
+yticklabel style={font=\large},
+typeset ticklabels with strut, 
+legend cell align={left},
+legend columns=-1,
+legend style={
+	font=\small,
+	fill opacity=1,
+	draw opacity=1,
+	text opacity=1,
+	at={(1.0,1.02)},
+	anchor=south east,
+},
+colormap/viridis,
+]
+%\draw[draw=none,fill=color0] (axis cs:-0.4,0) rectangle (axis cs:0.4,60043.459069252);
+%\draw[draw=none,fill=color0] (axis cs:0.6,0) rectangle (axis cs:1.4,59003.3924343586);
+%\draw[draw=none,fill=color0] (axis cs:1.6,0) rectangle (axis cs:2.4,7238.57805323601);
+%\draw[draw=none,fill=color0] (axis cs:2.6,0) rectangle (axis cs:3.4,737.270066261292);
+%\draw[draw=none,fill=color0] (axis cs:3.6,0) rectangle (axis cs:4.4,258.791455745697);
+%\draw[draw=none,fill=color0] (axis cs:4.6,0) rectangle (axis cs:5.4,675.399163722992);
+\draw[bar-color=150] (axis cs:-0.4,0) rectangle (axis cs:0,60043.459069252);
+\addlegendimage{ybar,ybar legend,bar-color=150};
+\addlegendentry{RTX-3090}
+
+\draw[bar-color=150] (axis cs:0.6,0) rectangle (axis cs:1,59003.3924343586);
+\draw[bar-color=150] (axis cs:1.6,0) rectangle (axis cs:2,7238.57805323601);
+\draw[bar-color=150] (axis cs:2.6,0) rectangle (axis cs:3,737.270066261292);
+\draw[bar-color=150] (axis cs:3.6,0) rectangle (axis cs:4,258.791455745697);
+\draw[bar-color=150] (axis cs:4.6,0) rectangle (axis cs:5,675.399163722992);
+\draw[bar-color=650] (axis cs:-2.77555756156289e-17,0) rectangle (axis cs:0.4,88204.0196371078);
+\addlegendimage{ybar,ybar legend,bar-color=650};
+\addlegendentry{A-100}
+
+\draw[bar-color=650] (axis cs:1,0) rectangle (axis cs:1.4,87014.2811319828);
+\draw[bar-color=650] (axis cs:2,0) rectangle (axis cs:2.4,10437.8452618122);
+\draw[bar-color=650] (axis cs:3,0) rectangle (axis cs:3.4,1051.62068152428);
+\draw[bar-color=650] (axis cs:4,0) rectangle (axis cs:4.4,366.911243915558);
+\draw[bar-color=650] (axis cs:5,0) rectangle (axis cs:5.4,1024.88420414925);
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
