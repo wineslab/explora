@@ -22,7 +22,7 @@ This repository is structured into the following sub-directories:
 
 > Tested on `Linux 5.11.0-22-generic #23~20.04.1-Ubuntu`
 
-- Make sure you have python Python 3.9.13 installed. Create a [virtual environment](https://docs.python.org/3/library/venv.html) and install the required dependencies (see [requirements.txt](scripts/requirements.txt) in the `scripts/` directory). Install [graphviz](https://graphviz.org/) too via `sudo apt-get install graphviz`.
+- Make sure you have python Python 3.9.13 installed. Create a [virtual environment](https://docs.python.org/3/library/venv.html) and install the required dependencies (see [requirements.txt](scripts/requirements.txt) in the `scripts/` directory - run `$ pip install -r requirements.txt`). Install [graphviz](https://graphviz.org/) too via `sudo apt-get install graphviz`.
 - Clone this repository.
 - Follow the instructions in the [`README`](scripts/README.md) of the [`scripts/`](scripts) sub-directory for the order of execution of the scripts. Check-back the [`data/`](data) to make sense of the workflow.
 - Find the results of the processing in [`results/`](results) and the final plots of the paper in [`paper-plots`](paper-plots).
