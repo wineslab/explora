@@ -125,10 +125,10 @@ if __name__ == "__main__":
 
     ##^^ list of experiments 
     #^ agent 1 - embb:
-    list_exp_ag_embb = [46,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    list_exp_ag_embb = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
     #^ agent 2 - urllc:
-    list_exp_ag_urllc = [43,28,29,44,31,32,33,34,45,36,37,38,39,40,41,42]
+    list_exp_ag_urllc = [27,28,29,30,31,32,33,34,45,36,37,38,39,40,41,42]
 
     if technique == "SHAP":
         ##^^ define global variables
