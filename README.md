@@ -3,8 +3,9 @@
 This repository contains the artifacts for the following paper:
 
 > *EXPLORA*: AI/ML *EXPL*ainability for the Open *RA*N<br>
-> (authors anon.)<br>
+> Claudio Fiandrino, Leonardo Bonati, Salvatore d'Oro, Michele Polese, Tommaso Melodia, Joerg Widmer<br>
 > CoNEXT ’23, December 5–8, 2023, Paris, France <br>
+> DOI: 10.1145/3629141
 
 ## Structure
 
